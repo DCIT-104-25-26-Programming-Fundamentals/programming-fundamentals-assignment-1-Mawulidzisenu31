@@ -48,4 +48,58 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+# =============================================================================
+# Fibonacci Sequence Generator
+# =============================================================================
 
+def print_fibonacci_terms(n):
+    a, b = 0, 1
+    terms = []
+    for _ in range(n):
+        terms.append(a)
+        a, b = b, a + b
+
+    print("Fibonacci sequence:", " ".join(str(term) for term in terms))
+
+
+def is_fibonacci_number(number):
+    if number < 0:
+        return False
+
+    a, b = 0, 1
+    while a <= number:
+        if a == number:
+            return True
+        a, b = b, a + b
+
+    return False
+
+
+def part_a():
+    print("\n--- Part A: First N Terms ---")
+    n = int(input("How many terms? "))
+
+    if n <= 0:
+        print("Error: N must be a positive integer.")
+        return
+
+    print_fibonacci_terms(n)
+
+
+def part_b():
+    print("\n--- Part B: Check if a Number Belongs to the Sequence ---")
+    number = int(input("Enter a number to check: "))
+
+    if is_fibonacci_number(number):
+        print(f"{number} is a Fibonacci number.")
+    else:
+        print(f"{number} is NOT a Fibonacci number.")
+
+
+def main():
+    part_a()
+    part_b()
+
+
+if __name__ == "__main__":
+    main()
